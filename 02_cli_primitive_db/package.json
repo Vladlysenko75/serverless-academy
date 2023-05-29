@@ -1,0 +1,14 @@
+{
+  "name": "02_cli_primitive_db",
+  "version": "1.0.0",
+  "description": "CLI DB",
+  "main": "db.js",
+  "scripts": {
+    "start": "node db.js"
+  },
+  "author": "Vladyslav Lysenko vladyslavlysenko75@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.5"
+  }
+}
