@@ -6,7 +6,7 @@ const weatherToken = "9386d066fcb17000cc217a73d2328b1d";
 
 const bot = new TelegramBot(botToken, { polling: true });
 
-let city = "";
+let city = {};
 
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
@@ -22,7 +22,7 @@ bot.onText(/\/start/, (msg) => {
 bot.onText(/^(Poltava|Nice)$/, (msg, match) => {
   const chatId = msg.chat.id;
   const town = match[0];
-  city = town;
+  city.chatId = town;
 
   bot.sendMessage(chatId, `Please select the forecast interval for ${town}:`, {
     reply_markup: {
@@ -36,7 +36,7 @@ bot.onText(/at intervals of (3|6) hours/, (msg, match) => {
   const chatId = msg.chat.id;
   const interval = match[1];
 
-  getWeatherForecast(interval, city, chatId);
+  getWeatherForecast(interval, city?.chatId || 'Poltava', chatId);
 });
 
 function getWeatherForecast(interval, city, chatId) {
