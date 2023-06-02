@@ -1,8 +1,8 @@
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
 
-const botToken = "5923863923:AAHbV92Xg5SSA5uKjtve2E6c5nhqbXSlT4k";
-const weatherToken = "9386d066fcb17000cc217a73d2328b1d";
+const botToken = "";
+const weatherToken = "";
 
 const bot = new TelegramBot(botToken, { polling: true });
 
@@ -36,7 +36,7 @@ bot.onText(/at intervals of (3|6) hours/, (msg, match) => {
   const chatId = msg.chat.id;
   const interval = match[1];
 
-  getWeatherForecast(interval, city?.chatId || 'Poltava', chatId);
+  getWeatherForecast(interval, city?.chatId || "Poltava", chatId);
 });
 
 function getWeatherForecast(interval, city, chatId) {
