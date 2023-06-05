@@ -23,7 +23,7 @@ program
   .action((path) => {
     const photo = fs.createReadStream(path);
     bot
-      .sendPhoto(chatId, photo)
+      .sendPhoto(chatId, photo, {}, { contentType: "image/jpeg" })
       .then(() => process.exit())
       .catch((error) => console.error("Error sending photo:", error));
   });
